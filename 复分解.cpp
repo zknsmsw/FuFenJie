@@ -16,7 +16,7 @@ int cut(string input) {
 			return n;
 			break;
 		}
-		n++;
+		n++;//分析阴离子是从哪里开始的
 	}
 }
 string yin(string input,int line) {
@@ -32,9 +32,9 @@ string yin(string input,int line) {
 }
 bool judge(string yang_,string yin_) {
 
-	string list[10]= {"HCO","HOH","CaCO","CuOH","FeOH","BaSO","AgCl","MgOH","AlOH","BaCO"};
+	string list[10]= {"HCO","HOH","CaCO","CuOH","FeOH","BaSO","AgCl","MgOH","AlOH","BaCO"};//有沉淀/水/气体生成即可
 	bool re=false;
-	for(int n=0; n<=9; n++) {
+	for(int n=0; n<=9; n++) {//判断是否符合条件
 		if((yang_+yin_)==list[n]) {
 			re=true;
 			break;
@@ -51,7 +51,7 @@ int main() {
 	int line2=cut(input2);
 	string yin1=yin(input1,line1);
 	string yin2=yin(input2,line2);
-	if(judge(yang1,yin2) || judge(yang2,yin1)) {
+	if(judge(yang1,yin2) || judge(yang2,yin1)) {//判断，输出结果
 		cout<<input1.substr(0,line1)<<input2.substr(line2,input2.length()-line2);
 		cout<<"+";
 		cout<<input2.substr(0,line2)<<input1.substr(line1,input1.length()-line1);
